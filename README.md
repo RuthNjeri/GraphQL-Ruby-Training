@@ -50,11 +50,14 @@ Movie.create(
 **GraphQL Implementation**
 
 * Create new file `/learning-graphql/app/graphql/types/movie_type.rb`. This is to define the [GraphQL Type](https://graphql.org/graphql-js/type/). Add the code below to that file.
+* `movie_type`(object type) is a basic component of the [GraphQL schema](https://graphql.org/learn/schema/). Representing an object(movies model) you can fetch from your service and what fields it has. 
+* `fields` show fields that can appear in the object(movie_type) when a query is made.
+* `null` is included to show if a field is nullable or not, meaning when it is `null: false` GraphQL will always give a value for this.
+* `String` is a built in scalar type.
 ```
 module Types
   class MovieType < BaseObject
-
-      field :id, ID, null: false
+      field :id, ID, null: false 
       field :title, String, null: false
       field :description, String, null: false
       field :created_at, Types::DateTimeType, null: false
